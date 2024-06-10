@@ -16,12 +16,13 @@ describe('Lojinha app', () => {
         await inpUsuario.waitForDisplayed()
         await inpSenha.waitForDisplayed()
 
-        await inpUsuario.addValue(usuario)
-        await inpSenha.addValue(senha)
+        await inpUsuario.setValue(usuario)
+        await inpSenha.setValue(senha)
         await btnEntrar.click()
 
         // Assert (Verificação)
-        expect (await lbListaProdutos.getText()).toEqual("Lista de Produtos")
+        const listaDeProdutos = await lblistaProdutos.getText('Lista de Produtos')
+        expect (listaDeProdutos).toEqual('Lista de Produtos')
 
     })
 })
